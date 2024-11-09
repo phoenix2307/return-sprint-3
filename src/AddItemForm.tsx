@@ -2,6 +2,7 @@ import {ChangeEvent, KeyboardEvent, useState} from "react";
 import TextField from '@mui/material/TextField';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import IconButton from "@mui/material/IconButton";
+import {v1} from "uuid";
 
 type PropsType = {
 	addItem: (title: string) => void
