@@ -42,7 +42,7 @@ type ThemeMode = 'dark' | 'light'
 
 function App_defrag() {
 
-	let tasks = useSelector<RootState, TasksStateType>(state => state.tasks)
+	// let tasks = useSelector<RootState, TasksStateType>(state => state.tasks)
 	let todolists = useSelector<RootState, TodolistType[]>(state => state.todolists)
 
 	const dispatch = useDispatch()
@@ -59,7 +59,7 @@ function App_defrag() {
 	});
 	//=========================================================================
 
-	const removeTask = (taskId: string, todolistId: string) => {
+/*	const removeTask = (taskId: string, todolistId: string) => {
 		dispatch(removeTaskAC({taskId,todolistId}))
 	}
 
@@ -83,12 +83,15 @@ function App_defrag() {
 		dispatch( removeTodolistAC(todolistId))
 	}
 
-	const addTodolist = (title: string) => {
-		dispatch(addTodolistAC(title))
-	}
 
 	const updateTodolist = (todolistId: string, title: string) => {
 		dispatch(changeTodolistTitleAC({id: todolistId, title}))
+	}*/
+
+	//===========================================================================
+
+	const addTodolist = (title: string) => {
+		dispatch(addTodolistAC(title))
 	}
 
 	const changeModeHandler = () => {
@@ -122,10 +125,7 @@ function App_defrag() {
 						return (
 							<Grid key={tl.id}>
 								<Paper sx={{p: '0 20px 20px 20px'}}>
-									<Todolist_defrag
-										key={tl.id}
-										todoList={tl}
-									/>
+									<Todolist_defrag todoList={tl}/>
 								</Paper>
 							</Grid>
 						)

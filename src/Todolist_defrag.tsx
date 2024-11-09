@@ -26,10 +26,11 @@ export const Todolist_defrag = (props: PropsType) => {
 
     //=================================================================================
 
-    let tasks = useSelector<RootState, TasksStateType>(state => state.tasks)
+    // let tasks = useSelector<RootState, TasksStateType>(state => state.tasks)
+    let tasks = useSelector<RootState, TaskType[]>(state => state.tasks[todoList.id])
     const dispatch = useDispatch()
 
-    let allTodolistTasks: TaskType[] = tasks[todoList.id]
+    let allTodolistTasks: TaskType[] = tasks
     let tasksForTodolist = allTodolistTasks
 
     if (todoList.filter === 'active') {
