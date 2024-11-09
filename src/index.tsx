@@ -4,6 +4,7 @@ import './index.css';
 import App from "./app/App";
 import {Provider} from "react-redux";
 import {store} from "./app/store";
+import App_defrag from "./app/App_defrag";
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
@@ -11,7 +12,8 @@ const root = ReactDOM.createRoot(
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App/>
+			{/*<App/>*/}
+			<App_defrag/>
 		</Provider>
 	</React.StrictMode>
 );

@@ -22,6 +22,7 @@ import {
 import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC} from "../model/tasks-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "./store";
+import {Todolist_defrag} from "../Todolist_defrag";
 
 export type TaskType = {
 	id: string
@@ -39,7 +40,7 @@ export type TasksStateType = {
 }
 type ThemeMode = 'dark' | 'light'
 
-function App() {
+function App_defrag() {
 
 	let tasks = useSelector<RootState, TasksStateType>(state => state.tasks)
 	let todolists = useSelector<RootState, TodolistType[]>(state => state.todolists)
@@ -118,33 +119,12 @@ function App() {
 				<Grid container spacing={4}>
 					{todolists.map((tl) => {
 
-						const allTodolistTasks = tasks[tl.id]
-						let tasksForTodolist = allTodolistTasks
-
-						if (tl.filter === 'active') {
-							tasksForTodolist = allTodolistTasks.filter(task => !task.isDone)
-						}
-
-						if (tl.filter === 'completed') {
-							tasksForTodolist = allTodolistTasks.filter(task => task.isDone)
-						}
-
 						return (
 							<Grid key={tl.id}>
 								<Paper sx={{p: '0 20px 20px 20px'}}>
-									<Todolist
+									<Todolist_defrag
 										key={tl.id}
-										todolistId={tl.id}
-										title={tl.title}
-										tasks={tasksForTodolist}
-										removeTask={removeTask}
-										changeFilter={changeFilter}
-										addTask={addTask}
-										changeTaskStatus={changeTaskStatus}
-										filter={tl.filter}
-										removeTodolist={removeTodolist}
-										updateTask={updateTask}
-										updateTodolist={updateTodolist}
+										todoList={tl}
 									/>
 								</Paper>
 							</Grid>
@@ -156,4 +136,4 @@ function App() {
 	);
 }
 
-export default App;
+export default App_defrag;

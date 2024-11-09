@@ -40,30 +40,6 @@ export const Todolist = (props: PropsType) => {
         updateTodolist
     } = props
 
-    //================ redux in low-components ======================
-
-    // const tasks = useSelector<RootState, TaskType[]>(state => state.tasks[todolistId])
-    // const dispatch = useDispatch()
-    //
-    // const changeFilterTasksHandler = (filter: FilterValuesType) => {
-    //     changeFilter(filter, props.todolistId)
-    // }
-    //
-    // const removeTodolistHandler = () => {
-    //     removeTodolist(todolistId)
-    // }
-    //
-    // const addTaskCallback = (title: string) => {
-    //     // addTask(title, props.todolistId)
-    //     dispatch(addTaskAC({title, todolistId}))
-    // }
-    //
-    // const updateTodolistHandler = (title: string) => {
-    //     updateTodolist(props.todolistId, title)
-    // }
-
-    //======================================================================
-
         const changeFilterTasksHandler = (filter: FilterValuesType) => {
             changeFilter(filter, props.todolistId)
         }
